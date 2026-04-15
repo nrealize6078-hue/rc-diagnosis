@@ -1567,8 +1567,8 @@
                         S('div', { className: 'diagnosis-card', style: { textAlign: 'center', marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)' } },
                             S('div', { className: 'result-score-display' }, Math.round((score / (props.diagType === 'company' ? 35 : 100)) * 100) + '%'),
 
-                            /* ランクレター */
-                            props.diagType === 'company' && S('div', { style: {
+                            /* ランクレター（Sランクはバッジのみ） */
+                            props.diagType === 'company' && result.letter !== 'S' && S('div', { style: {
                                 fontSize: 'clamp(3.5rem, 12vw, 5rem)', fontWeight: 900, color: result.color,
                                 lineHeight: 1, margin: '0.5rem 0', textShadow: '0 0 30px ' + result.color + '60',
                                 fontFamily: 'Inter, sans-serif'
@@ -1580,7 +1580,7 @@
                                 display: 'block', filter: 'drop-shadow(0 0 20px rgba(218,165,32,0.4))'
                             } }),
 
-                            S('div', { className: 'result-rank', style: { color: props.diagType === 'company' ? result.color : '#2c2318' } }, result.title || result.rank),
+                            S('div', { className: 'result-rank', style: { color: props.diagType === 'company' ? (result.letter === 'S' ? '#DAA520' : result.color) : '#2c2318' } }, result.title || result.rank),
                             S('div', { className: 'result-comment' }, result.comment),
                             result.highlight && S('div', { style: {
                                 color: '#DAA520', fontWeight: 700, fontSize: 'clamp(0.95rem, 2.8vw, 1.1rem)',
