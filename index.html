@@ -1712,7 +1712,7 @@
 
                             /* ③ 教育診断バッジ（テキストの後に表示） */
                             props.diagType === 'company' && result.letter === 'S' && S('img', { src: IMG_SRANK, alt: 'S RANK', style: {
-                                width: 'clamp(220px, 55vw, 340px)', height: 'auto', margin: '1rem auto',
+                                width: 'clamp(260px, 65vw, 400px)', height: 'auto', margin: '1rem auto',
                                 display: 'block', filter: 'drop-shadow(0 0 20px rgba(218,165,32,0.4))'
                             } }),
                             props.diagType === 'company' && result.letter === 'A' && S('img', { src: IMG_ARANK, alt: 'A RANK', style: {
@@ -1845,7 +1845,7 @@
                                             S('span', { style: { fontSize: 'clamp(0.7rem, 1.8vw, 0.8rem)', color: '#8b7355', fontWeight: 500 } }, r.range)
                                         ),
                                         S('img', { src: IMG_SRANK, alt: 'S RANK', style: {
-                                            width: 'clamp(180px, 50vw, 280px)', height: 'auto',
+                                            width: 'clamp(220px, 60vw, 340px)', height: 'auto',
                                             display: 'block', margin: '0.5rem auto',
                                             filter: 'drop-shadow(0 0 12px rgba(218,165,32,0.3))'
                                         } }),
@@ -2017,6 +2017,36 @@
             );
         }
 
+        function CustomPopup(props) {
+            if (!props.message) return null;
+            return S('div', { style: {
+                position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+                background: 'rgba(0,0,0,0.6)', zIndex: 9999,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                padding: 20
+            }, onClick: props.onClose },
+                S('div', { style: {
+                    background: '#1b4332', border: '1px solid rgba(218,165,32,0.3)',
+                    borderRadius: 8, padding: 'clamp(2rem, 5vw, 3rem)',
+                    maxWidth: 400, width: '100%', textAlign: 'center',
+                    boxShadow: '0 8px 40px rgba(0,0,0,0.4)'
+                }, onClick: function(e) { e.stopPropagation(); } },
+                    S('div', { style: { fontSize: 'clamp(1.5rem, 5vw, 2rem)', marginBottom: 16 } }, '✉️'),
+                    S('div', { style: {
+                        fontSize: 'clamp(0.95rem, 2.8vw, 1.1rem)', color: '#fff',
+                        fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 700,
+                        lineHeight: 1.8, marginBottom: 20
+                    } }, props.message),
+                    S('button', { onClick: props.onClose, style: {
+                        background: '#DAA520', color: '#fff', border: 'none',
+                        padding: '10px 32px', fontSize: 'clamp(0.85rem, 2.2vw, 0.95rem)',
+                        fontWeight: 700, borderRadius: 4, cursor: 'pointer',
+                        fontFamily: "'Noto Sans JP', sans-serif"
+                    } }, '閉じる')
+                )
+            );
+        }
+
         function ContactPage(props) {
             var formDataState = useState({ name: '', company: '', address: '', phone: '', email: '', message: '' });
             var formData = formDataState[0];
@@ -2024,6 +2054,9 @@
             var submitState = useState(false);
             var isSubmitting = submitState[0];
             var setIsSubmitting = submitState[1];
+            var popupState = useState('');
+            var popupMsg = popupState[0];
+            var setPopupMsg = popupState[1];
 
             function handleFormChange(field, value) {
                 var newData = {};
@@ -2044,11 +2077,11 @@
                 fd.append('entry.email', formData.email);
                 fd.append('entry.message', formData.message);
                 fetch(url, { method: 'POST', body: fd, mode: 'no-cors' }).then(function() {
-                    alert('送信が完了しました。ありがとうございます。');
+                    setPopupMsg('送信が完了しました。\nありがとうございます。');
                     setFormData({ name: '', company: '', address: '', phone: '', email: '', message: '' });
                     setIsSubmitting(false);
                 }).catch(function() {
-                    alert('送信中にエラーが発生しました。');
+                    setPopupMsg('送信中にエラーが発生しました。');
                     setIsSubmitting(false);
                 });
             }
@@ -2058,6 +2091,7 @@
             var bodySize = 'clamp(0.82rem, 2.3vw, 0.92rem)';
 
             return S('div', { className: 'page dark-theme', style: { overflowX: 'hidden', position: 'relative', padding: 0, background: '#0f2b1e', color: '#fff', minHeight: '100vh' } },
+                S(CustomPopup, { message: popupMsg, onClose: function() { setPopupMsg(''); } }),
                 S('div', { style: { padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 5vw, 3rem)' } },
                     S('button', { className: 'back-button', onClick: function() { props.setPage('result'); } }, '← 結果に戻る'),
                     S('div', { style: { textAlign: 'center', marginTop: 'clamp(1rem, 3vw, 2rem)', marginBottom: 'clamp(1.5rem, 4vw, 2rem)' } },
@@ -2123,6 +2157,10 @@
             var isSubmitting = isSubmittingState[0];
             var setIsSubmitting = isSubmittingState[1];
 
+            var popupState = useState('');
+            var popupMsg = popupState[0];
+            var setPopupMsg = popupState[1];
+
             function handleFormChange(field, value) {
                 var newData = {};
                 Object.assign(newData, formData);
@@ -2143,11 +2181,11 @@
                     headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify(payload)
                 }).then(function() {
-                    alert('ご送信ありがとうございました。担当者よりご連絡させていただきます。');
+                    setPopupMsg('ご送信ありがとうございました。\n担当者よりご連絡させていただきます。');
                     setFormData({ name: '', company: '', address: '', phone: '', email: '', message: '' });
                     setIsSubmitting(false);
                 }).catch(function(err) {
-                    alert('送信中にエラーが発生しました。');
+                    setPopupMsg('送信中にエラーが発生しました。');
                     setIsSubmitting(false);
                 });
             }
@@ -2183,6 +2221,7 @@
             var bodySize = 'clamp(0.82rem, 2.3vw, 0.92rem)';
 
             return S('div', { className: 'page dark-theme', style: { overflowX: 'hidden', position: 'relative', padding: 0, background: '#0f2b1e', color: '#fff' } },
+                S(CustomPopup, { message: popupMsg, onClose: function() { setPopupMsg(''); } }),
 
                 /* ===== FIXED 申し込む BUTTON ===== */
                 S('div', { style: {
