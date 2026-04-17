@@ -1156,14 +1156,14 @@
                         /* メインコピー */
                         S('h1', { style: {
                             fontFamily: "'Noto Serif JP', Georgia, serif",
-                            fontSize: 'clamp(26px, 7vw, 42px)', fontWeight: 700, color: '#fff',
-                            lineHeight: 1.6, letterSpacing: 4, marginBottom: 'clamp(20px, 5vw, 32px)',
+                            fontSize: 'clamp(22px, 6vw, 42px)', fontWeight: 700, color: '#fff',
+                            lineHeight: 1.6, letterSpacing: 'clamp(1px, 0.5vw, 4px)', marginBottom: 'clamp(20px, 5vw, 32px)',
                             overflowWrap: 'break-word'
                         } }, '教育が、社員を守る時代。'),
 
                         S('p', { style: {
-                            fontSize: 'clamp(15px, 4vw, 20px)', color: '#DAA520',
-                            lineHeight: 1.8, marginBottom: 'clamp(16px, 4vw, 24px)', letterSpacing: 1.5,
+                            fontSize: 'clamp(13px, 3.5vw, 20px)', color: '#DAA520',
+                            lineHeight: 1.8, marginBottom: 'clamp(16px, 4vw, 24px)', letterSpacing: 'clamp(0.5px, 0.3vw, 1.5px)',
                             overflowWrap: 'break-word', fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 600
                         } }, 'あなたの会社は、社員の"人生"まで守れていますか？'),
 
@@ -2143,9 +2143,9 @@
             function sH(text) {
                 return S('div', { style: { textAlign: 'center', marginBottom: 'clamp(1.5rem, 4vw, 2.5rem)' } },
                     S('div', { style: {
-                        fontSize: 'clamp(1.15rem, 3.8vw, 1.5rem)', color: '#fff', fontWeight: 700,
-                        fontFamily: "'Noto Serif JP', Georgia, serif", letterSpacing: 2, lineHeight: 1.7,
-                        overflowWrap: 'break-word', whiteSpace: 'pre-line'
+                        fontSize: 'clamp(1rem, 3.8vw, 1.5rem)', color: '#fff', fontWeight: 700,
+                        fontFamily: "'Noto Serif JP', Georgia, serif", letterSpacing: 'clamp(1px, 0.3vw, 2px)', lineHeight: 1.7,
+                        overflowWrap: 'break-word'
                     } }, text)
                 );
             }
@@ -2158,8 +2158,8 @@
             }
 
             /* --- card style for items on dark bg --- */
-            var cardBg = 'rgba(255,255,255,0.06)';
-            var cardBorder = '1px solid rgba(218,165,32,0.18)';
+            var cardBg = 'transparent';
+            var cardBorder = 'none';
             var subColor = 'rgba(255,255,255,0.5)';
             var bodyColor = 'rgba(255,255,255,0.7)';
             var bodySize = 'clamp(0.82rem, 2.3vw, 0.92rem)';
@@ -2243,8 +2243,7 @@
                             textAlign: 'center', marginTop: '1.5rem', fontSize: 'clamp(0.78rem, 2vw, 0.85rem)', color: subColor, lineHeight: 1.8
                         } }, '困ってから考える → 判断を間違える → 後悔を生む'),
                         S('div', { key: 'a4', style: {
-                            textAlign: 'center', marginTop: '1.2rem', padding: '16px',
-                            background: 'rgba(255,255,255,0.04)', border: cardBorder
+                            textAlign: 'center', marginTop: '1.2rem', padding: '16px'
                         } },
                             S('div', { style: { fontSize: bodySize, color: '#DAA520', fontWeight: 700, marginBottom: 4 } }, 'なぜか？'),
                             S('div', { style: { fontSize: 'clamp(0.78rem, 2vw, 0.85rem)', color: bodyColor } },
@@ -2256,7 +2255,7 @@
 
                     /* ===== Section 2: Question ===== */
                     sec([
-                        sH('会社は、社員の人生を\n守れていますか？'),
+                        sH('会社は、社員の人生を守れていますか？'),
                         S('div', { key: 'q1', style: {
                             maxWidth: 600, margin: '0 auto', textAlign: 'left',
                             fontSize: bodySize, lineHeight: 2.2, color: 'rgba(255,255,255,0.85)'
@@ -2276,7 +2275,7 @@
 
                     /* ===== Section 3: Solution ===== */
                     sec([
-                        sH('その仕組みを埋めるのが\nリアライズクラブです'),
+                        sH('その仕組みを埋めるのがリアライズクラブです'),
                         S('div', { key: 's1', style: { textAlign: 'center', marginBottom: '1.5rem', fontSize: bodySize, color: bodyColor, lineHeight: 2.0 } },
                             '今までになかった人生教育により人生の判断軸が身につく！'
                         ),
@@ -2389,7 +2388,7 @@
                         return S('div', { ref: ref, style: {
                             padding: 'clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 3rem)'
                         } },
-                            S('div', { style: fadeUp(0) }, sH('例えば老後にいくら足りないか\n知っていますか？')),
+                            S('div', { style: fadeUp(0) }, sH('例えば老後にいくら足りないか知っていますか？')),
                             S('div', { style: Object.assign({ textAlign: 'center', padding: 'clamp(1rem, 3vw, 2rem) 0' }, fadeUp(0.2)) },
                                 S('div', { style: { fontSize: 'clamp(0.85rem, 2.2vw, 0.95rem)', color: subColor, marginBottom: 12, letterSpacing: 3 } }, '老後不足金額'),
                                 S('div', { style: {
@@ -2407,7 +2406,6 @@
                                 textAlign: 'center', marginTop: '1.2rem'
                             }, fadeUp(0.7)) },
                                 S('span', { style: {
-                                    background: 'rgba(255,255,255,0.1)', border: cardBorder,
                                     padding: '8px 24px', display: 'inline-block',
                                     fontSize: bodySize, fontWeight: 700, letterSpacing: 1
                                 } }, '知らない ＝ 詰む構造')
@@ -2432,7 +2430,7 @@
                         } }),
                         S('div', { style: { position: 'relative', zIndex: 1 } },
                         [
-                        sH('この「知らない」が\n最大の問題です。'),
+                        sH('この「知らない」が最大の問題です。'),
                         S('div', { key: 'ro1', style: {
                             textAlign: 'center', fontSize: bodySize, color: bodyColor, lineHeight: 2.0,
                             maxWidth: 540, margin: '0 auto', whiteSpace: 'pre-line'
@@ -2471,7 +2469,7 @@
                     sec([
                         S('div', { key: 'v00', style: { textAlign: 'center', fontSize: 'clamp(10px, 2.2vw, 11px)', letterSpacing: 5, color: 'rgba(218,165,32,0.7)', marginBottom: 8 } }, '従来の福利厚生との決定的な違い'),
                         sH('福利厚生の概念が変わる'),
-                        S('div', { key: 'v1', style: { maxWidth: 600, margin: '0 auto', border: cardBorder } },
+                        S('div', { key: 'v1', style: { maxWidth: 600, margin: '0 auto', border: '1px solid rgba(218,165,32,0.18)' } },
                             /* header row */
                             S('div', { style: {
                                 display: 'grid', gridTemplateColumns: '60px 1fr 1fr',
@@ -2504,7 +2502,7 @@
                         sH('人生教育による行動変容'),
                         S('div', { key: 'ba1', style: {
                             display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, maxWidth: 600, margin: '0 auto',
-                            border: cardBorder, overflow: 'hidden'
+                            border: '1px solid rgba(218,165,32,0.18)', overflow: 'hidden'
                         } },
                             S('div', { style: { background: 'rgba(255,255,255,0.03)' } },
                                 S('div', { style: { padding: '10px', textAlign: 'center', fontWeight: 700, fontSize: 'clamp(0.8rem, 2.2vw, 0.9rem)', color: subColor, borderBottom: '1px solid rgba(218,165,32,0.1)' } }, 'Before'),
@@ -2523,33 +2521,6 @@
                             textAlign: 'center', marginTop: '1.2rem', fontSize: bodySize, color: '#DAA520', fontWeight: 700,
                             fontFamily: "'Noto Serif JP', Georgia, serif", letterSpacing: 1
                         } }, '社員の不安を安心と行動に変える仕組み')
-                    ]),
-
-                    /* ===== Section 8: 5つの価値 ===== */
-                    sec([
-                        S('div', { key: 'b00', style: { textAlign: 'center', fontSize: 'clamp(10px, 2.2vw, 11px)', letterSpacing: 5, color: 'rgba(218,165,32,0.7)', marginBottom: 8 } }, '導入メリット'),
-                        sH('企業が得られる5つの価値'),
-                        S('div', { key: 'b2', style: {
-                            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                            gap: 'clamp(10px, 2.5vw, 16px)', maxWidth: 600, margin: '0 auto'
-                        } },
-                            [
-                                { icon: '📉', name: '離職率低下', sub: '人生不安が減る' },
-                                { icon: '🎯', name: '採用力UP', sub: '圧倒的差別化' },
-                                { icon: '📈', name: '生産性向上', sub: '私生活の安定' },
-                                { icon: '⭐', name: 'エンゲージメントUP', sub: '実感できる価値' },
-                                { icon: '🌍', name: '企業価値向上', sub: '社会性のある会社へ' }
-                            ].map(function(v, i) {
-                                return S('div', { key: i, style: {
-                                    background: cardBg, border: cardBorder,
-                                    padding: 'clamp(18px, 4vw, 28px) 12px', textAlign: 'center'
-                                } },
-                                    S('div', { style: { fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: 10 } }, v.icon),
-                                    S('div', { style: { fontSize: 'clamp(0.85rem, 2.5vw, 0.95rem)', fontWeight: 700, letterSpacing: 1, marginBottom: 4 } }, v.name),
-                                    S('div', { style: { fontSize: 'clamp(0.7rem, 1.8vw, 0.78rem)', color: subColor } }, v.sub)
-                                );
-                            })
-                        )
                     ]),
 
                     /* ===== Section 10: 料金 ===== */
