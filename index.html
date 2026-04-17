@@ -1158,21 +1158,21 @@
                             fontFamily: "'Noto Serif JP', Georgia, serif",
                             fontSize: 'clamp(26px, 7vw, 42px)', fontWeight: 700, color: '#fff',
                             lineHeight: 1.6, letterSpacing: 4, marginBottom: 'clamp(20px, 5vw, 32px)',
-                            wordBreak: 'keep-all'
+                            overflowWrap: 'break-word'
                         } }, '教育が、社員を守る時代。'),
 
                         S('p', { style: {
                             fontSize: 'clamp(15px, 4vw, 20px)', color: '#DAA520',
                             lineHeight: 1.8, marginBottom: 'clamp(16px, 4vw, 24px)', letterSpacing: 1.5,
-                            wordBreak: 'keep-all', fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 600
+                            overflowWrap: 'break-word', fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 600
                         } }, 'あなたの会社は、社員の"人生"まで守れていますか？'),
 
                         S('p', { style: {
                             fontSize: 'clamp(12px, 2.8vw, 14px)', color: '#DAA520',
                             lineHeight: 2.2, fontFamily: "'Noto Serif JP', Georgia, serif",
                             marginBottom: 'clamp(48px, 10vw, 72px)', letterSpacing: 0.5,
-                            overflowWrap: 'break-word', wordBreak: 'normal', maxWidth: 420, whiteSpace: 'pre-line'
-                        } }, '給与・休み・制度だけでは、もう守れない。\nこれからの企業に必要なのは、\n社員が人生で困らないための"教育"です。'),
+                            overflowWrap: 'break-word', wordBreak: 'normal', maxWidth: 420, whiteSpace: 'normal'
+                        } }, '給与・休み・制度だけでは、もう守れない。これからの企業に必要なのは、社員が人生で困らないための"教育"です。'),
 
                         /* 診断選択 */
                         S('div', { style: { display: 'flex', flexDirection: 'column', gap: 16, width: '100%', maxWidth: 400 } },
@@ -1240,7 +1240,7 @@
                                 S('p', { style: {
                                     fontSize: 'clamp(12px, 3vw, 14px)', color: '#8b7355',
                                     lineHeight: 2.0, marginBottom: 48, letterSpacing: 0.5, overflowWrap: 'break-word', wordBreak: 'normal', whiteSpace: 'pre-line'
-                                } }, '7つの質問であなたとあなたの会社がどれだけ\n社員の人生に向き合えているかがわかります。')
+                                } }, '7つの質問であなたとあなたの会社がどれだけ社員の人生に向き合えているかがわかります。')
                             ) :
                             S('div', null,
                                 S('h1', { style: {
@@ -1251,7 +1251,7 @@
                                 S('p', { style: {
                                     fontSize: 'clamp(12px, 3vw, 14px)', color: '#8b7355',
                                     lineHeight: 2.0, marginBottom: 48, letterSpacing: 0.5, overflowWrap: 'break-word', wordBreak: 'normal', whiteSpace: 'pre-line'
-                                } }, '20の質問であなたの会社が人生に必要なことまで\n支えてくれているかを見える化します。')
+                                } }, '20の質問であなたの会社が人生に必要なことまで支えてくれているかを見える化します。')
                             ),
 
                         S('button', {
@@ -1744,7 +1744,7 @@
                             result.highlight && S('div', { style: {
                                 color: '#DAA520', fontWeight: 700, fontSize: 'clamp(0.95rem, 2.8vw, 1.1rem)',
                                 marginTop: '0.8rem', fontFamily: "'Noto Serif JP', Georgia, serif",
-                                wordBreak: 'keep-all', overflowWrap: 'normal'
+                                overflowWrap: 'break-word'
                             } }, result.highlight),
                             result.bullets && result.bullets.length > 0 && S('div', { style: { marginTop: '1.2rem', textAlign: 'center' } },
                                 S('div', { style: {
@@ -2145,7 +2145,7 @@
                     S('div', { style: {
                         fontSize: 'clamp(1.15rem, 3.8vw, 1.5rem)', color: '#fff', fontWeight: 700,
                         fontFamily: "'Noto Serif JP', Georgia, serif", letterSpacing: 2, lineHeight: 1.7,
-                        wordBreak: 'keep-all', whiteSpace: 'pre-line'
+                        overflowWrap: 'break-word', whiteSpace: 'pre-line'
                     } }, text)
                 );
             }
@@ -2271,14 +2271,14 @@
                         S('div', { key: 'q2', style: {
                             textAlign: 'center', marginTop: '1.5rem', fontSize: 'clamp(0.92rem, 2.8vw, 1.05rem)',
                             color: '#DAA520', fontWeight: 700, fontFamily: "'Noto Serif JP', Georgia, serif"
-                        } }, '1つでもNOなら、\nそれは「会社の仕組み不足」です。')
+                        } }, '1つでもNOなら、それは「会社の仕組み不足」です。')
                     ]),
 
                     /* ===== Section 3: Solution ===== */
                     sec([
                         sH('その仕組みを埋めるのが\nリアライズクラブです'),
                         S('div', { key: 's1', style: { textAlign: 'center', marginBottom: '1.5rem', fontSize: bodySize, color: bodyColor, lineHeight: 2.0 } },
-                            '今までになかった人生教育により\n人生の判断軸が身につく！'
+                            '今までになかった人生教育により人生の判断軸が身につく！'
                         ),
                         S('div', { key: 's2', style: {
                             display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'clamp(8px, 2vw, 14px)',
@@ -2334,7 +2334,7 @@
                         ),
                         S('div', { key: 'e3', style: {
                             textAlign: 'center', marginTop: '1.5rem', fontSize: bodySize, color: bodyColor, lineHeight: 1.8
-                        } }, '知らずに生きる ＝ 不安\n整っている状態 ＝ 安心')
+                        } }, '知らずに生きる ＝ 不安　／　整っている状態 ＝ 安心')
                     ]),
 
                     /* ===== Section 5: 衝撃の数字（スクロールアニメーション） ===== */
@@ -2436,7 +2436,7 @@
                         S('div', { key: 'ro1', style: {
                             textAlign: 'center', fontSize: bodySize, color: bodyColor, lineHeight: 2.0,
                             maxWidth: 540, margin: '0 auto', whiteSpace: 'pre-line'
-                        } }, '多くの人が「なんとなく」で\n人生の決断をしてしまっています。'),
+                        } }, '多くの人が「なんとなく」で人生の決断をしてしまっています。'),
                         S('div', { key: 'ro2', style: {
                             maxWidth: 500, margin: '1.5rem auto 0', display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 2.5vw, 14px)'
                         } },
@@ -2459,7 +2459,7 @@
                         S('div', { key: 'ro3', style: {
                             textAlign: 'center', marginTop: '1.5rem', fontSize: bodySize, color: '#ef4444',
                             fontWeight: 700, lineHeight: 1.8, whiteSpace: 'pre-line'
-                        } }, 'この "知らない" が、\n老後破産・生活苦の最大の原因です。'),
+                        } }, 'この "知らない" が、老後破産・生活苦の最大の原因です。'),
                         S('div', { key: 'ro4', style: {
                             textAlign: 'center', marginTop: '1.2rem', fontSize: bodySize, color: '#DAA520',
                             fontWeight: 600, lineHeight: 1.8, whiteSpace: 'pre-line',
@@ -2592,7 +2592,7 @@
                             textAlign: 'center', marginTop: '2.5rem', fontSize: 'clamp(1.3rem, 4vw, 1.6rem)',
                             fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 700, letterSpacing: 1,
                             whiteSpace: 'pre-line', lineHeight: 1.9, color: '#fff'
-                        } }, 'コーヒー1杯分の値段で\n社員の人生不安を解消します。')
+                        } }, 'コーヒー1杯分の値段で社員の人生不安を解消します。')
                     ]),
 
                     /* ===== Section 12: Vision ===== */
@@ -2604,7 +2604,7 @@
                             fontSize: 'clamp(0.88rem, 2.5vw, 1rem)', color: bodyColor,
                             lineHeight: 2.4, fontFamily: "'Noto Serif JP', Georgia, serif",
                             whiteSpace: 'pre-line', marginBottom: '1.5rem'
-                        } }, '社員の人生が整えば\n家庭が整う\n家庭が整えば\n子どもが救われる'),
+                        } }, '社員の人生が整えば、家庭が整う。家庭が整えば、子どもが救われる。'),
                         S('div', { style: {
                             fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', color: '#DAA520',
                             fontWeight: 700, fontFamily: "'Noto Serif JP', Georgia, serif", letterSpacing: 3
