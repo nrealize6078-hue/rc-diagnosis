@@ -1747,7 +1747,7 @@
                                 overflowWrap: 'break-word'
                             } }, result.highlight),
                             result.bullets && result.bullets.length > 0 && S('div', { style: { marginTop: '1.2rem', textAlign: 'center' } },
-                                S('div', { style: {
+                                result.letter !== 'B' && S('div', { style: {
                                     fontSize: 'clamp(14px, 3vw, 16px)', letterSpacing: 8, marginBottom: '0.6rem', color: '#DAA520'
                                 } }, '\u2605 \u2605 \u2605'),
                                 S('div', { style: {
