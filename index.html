@@ -958,7 +958,7 @@
         var COMPANY_RANKS = [
             {
                 letter: 'S', color: '#22c55e', range: '30〜35点',
-                title: '社員の人生まで守る"本物の会社"です',
+                title: '社員の人生まで守る\n"本物の会社"です',
                 comment: 'あなたの会社は、単なる雇用の場ではありません。',
                 highlight: '社員の人生基盤を支える企業です',
                 bullets: ['採用が強い', '離職が少ない', '信頼が厚い']
@@ -972,7 +972,7 @@
             },
             {
                 letter: 'B', color: '#f97316', range: '10〜17.5点',
-                title: '社員の人生が"自己責任"になっています',
+                title: '社員の人生が\n"自己責任"になっています',
                 comment: 'この状態では社員は不安を抱え続けます。',
                 highlight: '',
                 bullets: ['将来不安', 'お金不安', '家庭不安']
@@ -1122,17 +1122,17 @@
             },
             {
                 range: '55〜79点', color: '#eab308',
-                rank: '一見問題なさそうで、実は不安の芽があります',
+                rank: '一見問題なさそうで、\n実は不安の芽があります',
                 comment: '大きな不満はなくても、人生に必要な知識や備えが不足している可能性があります。このままだと、結婚、出産、住み替え、病気、老後などの局面で一気に不安が噴き出すかもしれません。'
             },
             {
                 range: '30〜54点', color: '#f97316',
-                rank: '将来の安心は、かなり弱い状態です',
+                rank: '将来の安心は、\nかなり弱い状態です',
                 comment: '今はなんとか回っていても、将来に備える知識・相談先・判断軸が足りていない可能性が高いです。お金、住まい、老後、家族のテーマを放置すると、後から大きな差になります。'
             },
             {
                 range: '0〜29点', color: '#ef4444',
-                rank: 'このままだと、人生を守るには厳しい環境です',
+                rank: 'このままだと、\n人生を守るには厳しい環境です',
                 comment: '厳しいですが、今の状態は「働いているだけで、守られているとは言えない」可能性があります。大切なのは我慢ではなく、正しい知識と相談できる環境です。人生は、知らないまま進むと不利になります。'
             }
         ];
@@ -1175,20 +1175,22 @@
                             fontSize: 'clamp(22px, 6vw, 42px)', fontWeight: 700, color: '#fff',
                             lineHeight: 1.6, letterSpacing: 'clamp(1px, 0.5vw, 4px)', marginBottom: 'clamp(20px, 5vw, 32px)',
                             overflowWrap: 'break-word'
+                            whiteSpace: 'nowrap'
                         } }, '教育が、社員を守る時代。'),
 
                         S('p', { style: {
                             fontSize: 'clamp(12px, 3.2vw, 20px)', color: '#DAA520',
                             lineHeight: 1.8, marginBottom: 'clamp(16px, 4vw, 24px)', letterSpacing: 0,
                             overflowWrap: 'break-word', fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 600
-                        } }, 'あなたの会社は、社員の"人生"まで守れていますか？'),
+                            whiteSpace: 'pre-line'
+                        } }, 'あなたの会社は、\n社員の"人生"まで守れていますか？'),
 
                         S('p', { style: {
                             fontSize: 'clamp(12px, 2.8vw, 14px)', color: '#DAA520',
                             lineHeight: 2.2, fontFamily: "'Noto Serif JP', Georgia, serif",
                             marginBottom: 'clamp(48px, 10vw, 72px)', letterSpacing: 0.5,
                             overflowWrap: 'break-word', wordBreak: 'normal', maxWidth: 420, whiteSpace: 'normal'
-                        } }, '給与・休み・制度だけでは、もう守れない。これからの企業に必要なのは、社員が人生で困らないための"教育"です。'),
+                        } }, '給与・休み・制度だけでは、もう守れない。\nこれからの企業に必要なのは、\n社員が人生で困らないための"教育"です。'),
 
                         /* 診断選択 */
                         S('div', { style: { display: 'flex', flexDirection: 'column', gap: 16, width: '100%', maxWidth: 400 } },
@@ -1705,7 +1707,7 @@
                             } }),
 
                             /* ② 教育診断テキスト（オフィス画像の後） */
-                            props.diagType === 'company' && S('div', { className: 'result-rank', style: { color: result.letter === 'S' ? '#DAA520' : result.color } }, result.title || result.rank),
+                            props.diagType === 'company' && S('div', { className: 'result-rank', style: { color: result.letter === 'S' ? '#DAA520' : result.color, whiteSpace: 'pre-line' } }, result.title || result.rank),
                             props.diagType === 'company' && S('div', { className: 'result-comment' }, result.comment),
 
                             /* ③ 教育診断バッジ（テキストの後に表示） */
@@ -1755,7 +1757,7 @@
                             } }),
 
                             /* 会社診断テキスト */
-                            props.diagType === 'employee' && S('div', { className: 'result-rank', style: { color: '#2c2318' } }, result.title || result.rank),
+                            props.diagType === 'employee' && S('div', { className: 'result-rank', style: { color: '#2c2318', whiteSpace: 'pre-line' } }, result.title || result.rank),
                             props.diagType === 'employee' && S('div', { className: 'result-comment' }, result.comment),
                             result.highlight && S('div', { style: {
                                 color: '#DAA520', fontWeight: 700, fontSize: 'clamp(0.95rem, 2.8vw, 1.1rem)',
@@ -1850,7 +1852,7 @@
                                         S('div', { style: {
                                             fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 700,
                                             fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', color: '#DAA520',
-                                            marginBottom: 6, lineHeight: 1.4
+                                            marginBottom: 6, lineHeight: 1.4, whiteSpace: 'pre-line'
                                         } }, r.title),
                                         S('div', { style: {
                                             fontSize: 'clamp(0.8rem, 2vw, 0.9rem)', color: '#6b5d4f',
@@ -1872,7 +1874,7 @@
                                         S('div', { style: {
                                             fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 700,
                                             fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', color: '#2c2318',
-                                            marginBottom: 6, lineHeight: 1.4
+                                            marginBottom: 6, lineHeight: 1.4, whiteSpace: 'pre-line'
                                         } }, r.title),
                                         S('div', { style: {
                                             fontSize: 'clamp(0.8rem, 2vw, 0.9rem)', color: '#6b5d4f',
@@ -1894,7 +1896,7 @@
                                         S('div', { style: {
                                             fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 700,
                                             fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', color: '#2c2318',
-                                            marginBottom: 6, lineHeight: 1.4
+                                            marginBottom: 6, lineHeight: 1.4, whiteSpace: 'pre-line'
                                         } }, r.title),
                                         S('div', { style: {
                                             fontSize: 'clamp(0.8rem, 2vw, 0.9rem)', color: '#6b5d4f',
@@ -1916,7 +1918,7 @@
                                         S('div', { style: {
                                             fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 700,
                                             fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', color: '#2c2318',
-                                            marginBottom: 6, lineHeight: 1.4
+                                            marginBottom: 6, lineHeight: 1.4, whiteSpace: 'pre-line'
                                         } }, r.title),
                                         S('div', { style: {
                                             fontSize: 'clamp(0.8rem, 2vw, 0.9rem)', color: '#6b5d4f',
@@ -1995,7 +1997,7 @@
                                     S('div', { style: {
                                         fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 700,
                                         fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', color: r.color,
-                                        marginBottom: 8, lineHeight: 1.5
+                                        marginBottom: 8, lineHeight: 1.5, whiteSpace: 'pre-line'
                                     } }, r.rank),
                                     S('div', { style: {
                                         fontSize: 'clamp(0.8rem, 2vw, 0.9rem)', color: '#6b5d4f',
@@ -2161,7 +2163,7 @@
                     S('div', { style: {
                         fontSize: 'clamp(0.9rem, 3.5vw, 1.5rem)', color: '#fff', fontWeight: 700,
                         fontFamily: "'Noto Serif JP', Georgia, serif", letterSpacing: 0, lineHeight: 1.7,
-                        overflowWrap: 'break-word'
+                        overflowWrap: 'break-word', whiteSpace: 'pre-line'
                     } }, text)
                 );
             }
@@ -2225,6 +2227,7 @@
                             fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', color: '#DAA520',
                             fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 700,
                             marginTop: 'clamp(1.5rem, 4vw, 2.5rem)', letterSpacing: 2, lineHeight: 1.8
+                            whiteSpace: 'nowrap'
                         } }, '人生をなんとなくで終わらせない')
                     ),
 
@@ -2262,8 +2265,8 @@
                             textAlign: 'center', marginTop: '1.2rem', padding: '16px'
                         } },
                             S('div', { style: { fontSize: bodySize, color: '#DAA520', fontWeight: 700, marginBottom: 4 } }, 'なぜか？'),
-                            S('div', { style: { fontSize: 'clamp(0.78rem, 2vw, 0.85rem)', color: bodyColor } },
-                                '学校では正解を教える、会社では業務を教える。'),
+                            S('div', { style: { fontSize: 'clamp(0.78rem, 2vw, 0.85rem)', color: bodyColor, whiteSpace: 'pre-line' } },
+                                '学校では正解を教える、\n会社では業務を教える。'),
                             S('div', { style: { fontSize: 'clamp(0.8rem, 2.4vw, 1.02rem)', color: '#fff', fontWeight: 700, marginTop: 8 } },
                                 'でも、人生に必要な教育はありませんでした。')
                         )
@@ -2271,7 +2274,7 @@
 
                     /* ===== Section 2: Question ===== */
                     sec([
-                        sH('会社は、社員の人生を守れていますか？'),
+                        sH('会社は、\n社員の人生を守れていますか？'),
                         S('div', { key: 'q1', style: {
                             maxWidth: 600, margin: '0 auto', textAlign: 'left',
                             fontSize: bodySize, lineHeight: 2.2, color: 'rgba(255,255,255,0.85)'
@@ -2286,12 +2289,13 @@
                         S('div', { key: 'q2', style: {
                             textAlign: 'center', marginTop: '1.5rem', fontSize: 'clamp(0.82rem, 2.5vw, 1.05rem)',
                             color: '#DAA520', fontWeight: 700, fontFamily: "'Noto Serif JP', Georgia, serif", letterSpacing: 0
-                        } }, '1つでもNOなら、それは「会社の仕組み不足」です。')
+                            whiteSpace: 'pre-line'
+                        } }, '1つでもNOなら、\nそれは「会社の仕組み不足」です。')
                     ]),
 
                     /* ===== Section 3: Solution ===== */
                     sec([
-                        sH('その仕組みを埋めるのがリアライズクラブです'),
+                        sH('その仕組みを埋めるのが\nリアライズクラブです'),
                         S('div', { key: 's1', style: { textAlign: 'center', marginBottom: '1.5rem', fontSize: bodySize, color: bodyColor, lineHeight: 2.0, whiteSpace: 'pre-line' } },
                             '今までになかった人生教育により\n人生の判断軸が身につく！'
                         ),
@@ -2324,7 +2328,7 @@
                     /* ===== Section 4: 6つの基礎知識 ===== */
                     sec([
                         S('div', { key: 'e0', style: { textAlign: 'center', fontSize: 'clamp(10px, 2.2vw, 11px)', letterSpacing: 5, color: 'rgba(218,165,32,0.7)', marginBottom: 8 } }, '人生教育とは'),
-                        sH('人生に必要な基礎知識はたった6つ'),
+                        sH('人生に必要な基礎知識は\nたった6つ'),
                         S('div', { key: 'e2', style: {
                             display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'clamp(10px, 2.5vw, 16px)',
                             maxWidth: 600, margin: '0 auto'
@@ -2404,7 +2408,7 @@
                         return S('div', { ref: ref, style: {
                             padding: 'clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 3rem)'
                         } },
-                            S('div', { style: fadeUp(0) }, sH('例えば老後にいくら足りないか知っていますか？')),
+                            S('div', { style: fadeUp(0) }, sH('例えば老後にいくら足りないか\n知っていますか？')),
                             S('div', { style: Object.assign({ textAlign: 'center', padding: 'clamp(1rem, 3vw, 2rem) 0' }, fadeUp(0.2)) },
                                 S('div', { style: { fontSize: 'clamp(0.85rem, 2.2vw, 0.95rem)', color: subColor, marginBottom: 12, letterSpacing: 3 } }, '老後不足金額'),
                                 S('div', { style: {
@@ -2478,7 +2482,7 @@
                             textAlign: 'center', marginTop: '1.2rem', fontSize: bodySize, color: '#DAA520',
                             fontWeight: 600, lineHeight: 1.8, whiteSpace: 'pre-line',
                             fontFamily: "'Noto Serif JP', Georgia, serif"
-                        } }, '人生教育で "知る" ことが、最大の防御になります。')
+                        } }, '人生教育で "知る" ことが、\n最大の防御になります。')
                     ])),
 
                     /* ===== Section 6: 従来との違い ===== */
@@ -2536,6 +2540,7 @@
                         S('div', { key: 'ba2', style: {
                             textAlign: 'center', marginTop: '1.2rem', fontSize: bodySize, color: '#DAA520', fontWeight: 700,
                             fontFamily: "'Noto Serif JP', Georgia, serif", letterSpacing: 1
+                            whiteSpace: 'nowrap'
                         } }, '社員の不安を安心と行動に変える仕組み')
                     ]),
 
@@ -2621,6 +2626,7 @@
                         S('div', { style: {
                             fontSize: 'clamp(0.9rem, 3.2vw, 1.4rem)', color: '#DAA520',
                             fontWeight: 700, fontFamily: "'Noto Serif JP', Georgia, serif", letterSpacing: 'clamp(1px, 0.3vw, 3px)'
+                            whiteSpace: 'nowrap'
                         } }, '会社が社会を変える時代へ')
                     ),
 
