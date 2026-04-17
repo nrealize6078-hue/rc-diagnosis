@@ -2035,7 +2035,7 @@
                     S('div', { style: {
                         fontSize: 'clamp(0.95rem, 2.8vw, 1.1rem)', color: '#fff',
                         fontFamily: "'Noto Serif JP', Georgia, serif", fontWeight: 700,
-                        lineHeight: 1.8, marginBottom: 20
+                        lineHeight: 1.8, marginBottom: 20, whiteSpace: 'pre-line'
                     } }, props.message),
                     S('button', { onClick: props.onClose, style: {
                         background: '#DAA520', color: '#fff', border: 'none',
@@ -2181,7 +2181,7 @@
                     headers: { 'Content-Type': 'text/plain' },
                     body: JSON.stringify(payload)
                 }).then(function() {
-                    setPopupMsg('ご送信ありがとうございました。\n担当者よりご連絡させていただきます。');
+                    setPopupMsg('送信ありがとうございました。\n後ほど担当よりご連絡させていただきます。');
                     setFormData({ name: '', company: '', address: '', phone: '', email: '', message: '' });
                     setIsSubmitting(false);
                 }).catch(function(err) {
@@ -2616,31 +2616,34 @@
 
                         /* 料金 横並び */
                         S('div', { key: 'pr2', style: {
-                            display: 'flex', justifyContent: 'center', alignItems: 'center',
-                            gap: 'clamp(12px, 3vw, 64px)',
-                            margin: '0 auto', maxWidth: 900, padding: '0 clamp(8px, 2vw, 0px)'
+                            display: 'flex', justifyContent: 'center', alignItems: 'stretch',
+                            gap: 0, margin: '0 auto', maxWidth: 700
                         } },
                             /* 左: 入会金 */
-                            S('div', { style: { textAlign: 'center', flex: '0 1 auto', minWidth: 0 } },
-                                S('div', { style: { fontSize: 'clamp(0.65rem, 2vw, 1.3rem)', color: subColor, marginBottom: 4 } }, '入会金'),
-                                S('span', { style: { color: '#fff', fontWeight: 900, fontSize: 'clamp(1.5rem, 6vw, 4.5rem)', fontFamily: "'Noto Serif JP', Georgia, serif" } }, '5'),
-                                S('span', { style: { color: '#fff', fontWeight: 700, fontSize: 'clamp(0.8rem, 2.5vw, 2rem)' } }, '万円')
+                            S('div', { style: { textAlign: 'center', flex: '1 1 0', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(12px, 3vw, 24px)' } },
+                                S('div', { style: { fontSize: 'clamp(0.7rem, 2.2vw, 0.95rem)', color: subColor, marginBottom: 8 } }, '入会金'),
+                                S('div', null,
+                                    S('span', { style: { color: '#fff', fontWeight: 900, fontSize: 'clamp(2rem, 7vw, 4.5rem)', fontFamily: "'Noto Serif JP', Georgia, serif" } }, '5'),
+                                    S('span', { style: { color: '#fff', fontWeight: 700, fontSize: 'clamp(0.9rem, 2.8vw, 2rem)' } }, '万円')
+                                )
                             ),
                             /* 区切り線（縦） */
-                            S('div', { style: { width: 1, height: 'clamp(40px, 8vw, 90px)', background: 'linear-gradient(180deg, transparent, rgba(218,165,32,0.5), transparent)', flexShrink: 0 } }),
+                            S('div', { style: { width: 1, background: 'linear-gradient(180deg, transparent, rgba(218,165,32,0.5), transparent)', flexShrink: 0 } }),
                             /* 中央: 月額 */
-                            S('div', { style: { textAlign: 'center', flex: '0 1 auto', minWidth: 0 } },
-                                S('div', { style: { fontSize: 'clamp(0.65rem, 2vw, 1.3rem)', color: subColor, marginBottom: 4 } }, '月額'),
-                                S('span', { style: { color: '#DAA520', fontWeight: 900, fontSize: 'clamp(2rem, 8vw, 6rem)', fontFamily: "'Noto Serif JP', Georgia, serif", textShadow: '0 0 30px rgba(218,165,32,0.2)' } }, '3'),
-                                S('span', { style: { color: '#DAA520', fontWeight: 700, fontSize: 'clamp(1rem, 3vw, 2.5rem)' } }, '万円'),
-                                S('div', { style: { fontSize: 'clamp(0.6rem, 1.8vw, 1rem)', color: 'rgba(255,255,255,0.5)', marginTop: 4 } }, '社員1人あたり 約600円')
+                            S('div', { style: { textAlign: 'center', flex: '1 1 0', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(12px, 3vw, 24px)' } },
+                                S('div', { style: { fontSize: 'clamp(0.7rem, 2.2vw, 0.95rem)', color: subColor, marginBottom: 8 } }, '月額'),
+                                S('div', null,
+                                    S('span', { style: { color: '#DAA520', fontWeight: 900, fontSize: 'clamp(2rem, 7vw, 4.5rem)', fontFamily: "'Noto Serif JP', Georgia, serif", textShadow: '0 0 30px rgba(218,165,32,0.2)' } }, '3'),
+                                    S('span', { style: { color: '#DAA520', fontWeight: 700, fontSize: 'clamp(0.9rem, 2.8vw, 2rem)' } }, '万円')
+                                ),
+                                S('div', { style: { fontSize: 'clamp(0.6rem, 1.8vw, 0.78rem)', color: 'rgba(255,255,255,0.5)', marginTop: 6 } }, '社員1人あたり 約600円')
                             ),
                             /* 区切り線（縦） */
-                            S('div', { style: { width: 1, height: 'clamp(40px, 8vw, 90px)', background: 'linear-gradient(180deg, transparent, rgba(218,165,32,0.5), transparent)', flexShrink: 0 } }),
+                            S('div', { style: { width: 1, background: 'linear-gradient(180deg, transparent, rgba(218,165,32,0.5), transparent)', flexShrink: 0 } }),
                             /* 右: いつでも解約可 */
-                            S('div', { style: { textAlign: 'center', flex: '0 1 auto', minWidth: 0 } },
-                                S('div', { style: { fontSize: 'clamp(0.7rem, 2.5vw, 2rem)', color: '#DAA520', fontWeight: 700 } }, 'いつでも解約可'),
-                                S('div', { style: { fontSize: 'clamp(0.55rem, 1.8vw, 1rem)', color: subColor, marginTop: 4 } }, 'それくらい自信があります。')
+                            S('div', { style: { textAlign: 'center', flex: '1 1 0', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 'clamp(12px, 3vw, 24px)' } },
+                                S('div', { style: { fontSize: 'clamp(0.9rem, 2.8vw, 1.5rem)', color: '#DAA520', fontWeight: 700, whiteSpace: 'nowrap' } }, 'いつでも解約可'),
+                                S('div', { style: { fontSize: 'clamp(0.6rem, 1.8vw, 0.78rem)', color: subColor, marginTop: 6 } }, 'それくらい自信があります。')
                             )
                         ),
 
